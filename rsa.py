@@ -28,6 +28,27 @@ def generate_prime ( a, b):
     
     return prime
 
+
+'''
+# Generar 2 primos aleatorios GRANDES DE "b" bits.
+b = 512
+
+p = sympy.randprime(2**(b-1),2**b)      # "randprime(x, y)" genera un número primo aleatorio en el rango [x, y).
+q = sympy.randprime(2**(b-1),2**b)
+
+
+# print(f"Primo de {b} bits: {p}")
+# print(f"Primo de {b} bits: {q}")
+
+
+# Funcion para generar llave publica "e".
+def generar_coprimo(primo, bits):
+    while True:
+        e = random.randint(2**(bits-1), 2**bits - 1)
+        if sympy.gcd(e, primo) == 1:
+            return e
+'''
+
 def calc_n (a,b):
     return a*b
 
