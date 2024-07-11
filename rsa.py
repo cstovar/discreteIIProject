@@ -111,17 +111,27 @@ def decrypt (arr_, d, n):
 
     return msg
 
-range_1 = 20
-range_2 = 100
+def create_tokens():
+    range_1 = 20
+    range_2 = 100
 
-p = generate_prime(range_1, range_2)
-q = generate_prime(range_1, range_2)
-
-
-while (p == q):
-    q = generate_prime(range_1, range_2 )
+    p = generate_prime(range_1, range_2)
+    q = generate_prime(range_1, range_2)
 
 
+    while (p == q):
+        q = generate_prime(range_1, range_2 )
+
+    n = calc_n (p, q)
+    phi = calc_phi (p, q)
+    e = calc_e(phi)
+    d = calc_d(e, phi)
+
+    tokens = [n,e,d]
+
+    return tokens
+
+'''
 n = calc_n (p, q)
 phi = calc_phi (p, q)
 e = calc_e(phi)
@@ -140,14 +150,5 @@ print(encry_m)
 decry_m = decrypt(encry_m, d, n)
 print(decry_m)
 
-
-
-
-
-
-
-
-
-
-
-
+print(convert_to_string(encry_m))
+'''
