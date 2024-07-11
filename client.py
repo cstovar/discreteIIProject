@@ -1,6 +1,6 @@
 import socket
 import rsa
-import aux
+import aux_p
 print ("client")
 ipServer = "localhost"
 portServer = 9798
@@ -35,7 +35,7 @@ while True:
 
     server_reply = client.recv(1024)
     reply_ = server_reply.decode('utf-8')
-    encry_m = aux.string_to_array(reply_)
+    encry_m = aux_p.string_to_array(reply_)
     legible_m = rsa.decrypt(encry_m, private_key_cli, n_cli)
 
     if legible_m == 'exit':

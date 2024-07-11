@@ -1,6 +1,6 @@
 import socket
 import rsa
-import aux
+import aux_p
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(("",9798))
 s.listen(5)
@@ -25,7 +25,7 @@ while True:
     client_reply = active.recv(1024)
     reply_ = client_reply.decode('utf-8')
 
-    encry_m = aux.string_to_array(reply_)
+    encry_m = aux_p.string_to_array(reply_)
     legible_m = rsa.decrypt(encry_m, private_key, n_)
     print ("From client --", legible_m)
 
